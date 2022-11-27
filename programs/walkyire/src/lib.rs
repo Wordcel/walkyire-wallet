@@ -14,6 +14,14 @@ pub mod walkyire {
         Ok(())
     }
 
+    pub fn initialize_proof(ctx: Context<InitializeProof>, status: bool) -> Result<()> {
+        let proof_account = &mut ctx.accounts.proof;
+        proof_account.status = status;
+        proof_account.wallet_account = ctx.accounts.wallet_account.key();
+        proof_account.bump = ctx.bumps["proof_account"];
+        Ok(())
+    }
+
     pub fn recover_wallet(ctx: Context<RecoverWallet>) -> Result<()> {
         // This verification is simplistic and thus centralizes the proof creation.
         // One way to decentralize is for devices/users to generate zk proof, further research here
@@ -41,6 +49,7 @@ pub struct InitializeWallet<'info> {
 }
 
 #[derive(Accounts)]
+#[instruction(status:bool)]
 pub struct InitializeProof<'info> {
     // Note that this creates an account that is rent exempt. The optimal way to do this would be
     // to just create the account for one epoch and let the runtime gc it.
