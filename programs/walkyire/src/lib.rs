@@ -26,6 +26,7 @@ pub mod walkyire {
         // This verification is simplistic and thus centralizes the proof creation.
         // One way to decentralize is for devices/users to generate zk proof, further research here
         // would be helpful.
+        // hash(otp), hash(otp_received) convert this into a range proof??
         require!(ctx.accounts.proof.status, ProofError::ProofFailure);
         let wallet_account = &mut ctx.accounts.wallet_account;
         wallet_account.wallet_pubkey = ctx.accounts.new_wallet_pubkey.key();
