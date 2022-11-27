@@ -7,4 +7,4 @@ We add a wrapper and an indirection to your existing wallet. This indirection/de
 
 Instead of Wallet -> Program, we do Container[Wallet] -> Program. 
 
-If a user lost access to their existing wallet, it request the admin for an OTP (sms/email) and upon verification, it creates a proof to recover the wallet. Upon the recovery, the internal state is changed to the new wallet.
+If a user lost access to their existing wallet, it requests the admin for an OTP (sms/email) and upon verification, it creates a proof to recover the wallet. Upon the recovery, the internal state is changed to the new wallet.
