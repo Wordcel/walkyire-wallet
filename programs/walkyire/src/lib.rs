@@ -57,7 +57,7 @@ pub struct InitializeProof<'info> {
         seeds = [b"walkyire_wallet_recovery", wallet_account.key().as_ref()],
         bump,
         payer = protocol_authority,
-        space= Proof::LEN
+        space = Proof::LEN
     )]
     pub proof: Account<'info, Proof>,
     pub wallet_account: Account<'info, WalkyireWallet>,
